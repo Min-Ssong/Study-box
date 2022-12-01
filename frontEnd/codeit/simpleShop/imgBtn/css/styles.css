@@ -1,0 +1,23 @@
+body {
+  margin: 50px 0;
+}
+
+h1 {
+  font-family: 'Noto Sans KR', sans-serif;
+  margin: 0;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.btns {
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+img {
+  width: 70px;
+}
