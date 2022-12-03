@@ -1,12 +1,3 @@
-// 1. form, input, list를 추적하는 변수 생성
-// 2. form의 submit 기능 제어
-// 3. form > input의 값 추출
-// 4. input의 값을 가지고 ul > li > span을 생성
-// 5. 생성된 todo를 삭제하는 button 생성
-// 6. 생성된 todo를 localStorage에 text, id 오브젝트 형태로 저장
-// 7. localStorage 존재하는 값을 json을 이용해서 가져옴
-// 8. 가져온 값을 다시 list로 만듬
-// 9. 시작할때 localStorage에 있던 값을 오브젝트에 저장
 const todoForm = document.querySelector("#todo-form");
 const todoInput = document.querySelector("#todo-form input");
 const todoList = document.querySelector("#todo-list");
