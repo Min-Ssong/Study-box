@@ -1,12 +1,14 @@
 package nested.local;
 
 public class LocalOuterV1 {
+
     private int outInstanceVar = 3;
 
-    public void process(int paramVar){
+    public void process(int paramVar) {
+
         int localVar = 1;
 
-        class LocalPrinter{
+        class LocalPrinter {
             int value = 0;
 
             public void printData() {
@@ -16,6 +18,7 @@ public class LocalOuterV1 {
                 System.out.println("outInstanceVar=" + outInstanceVar);
             }
         }
+
         LocalPrinter printer = new LocalPrinter();
         printer.printData();
     }
