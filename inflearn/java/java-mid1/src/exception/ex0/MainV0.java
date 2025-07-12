@@ -8,13 +8,13 @@ public class MainV0 {
 
         Scanner scanner = new Scanner(System.in);
         while(true){
-            System.out.print("messag: ");
+            System.out.print("message: ");
             String input = scanner.nextLine();
             if(input.equals("exit")){
                 break;
             }
 
-            networkService.sendMessag(input);
+            networkService.sendMessage(input);
             System.out.println();
         }
         System.out.println("program is exit");
