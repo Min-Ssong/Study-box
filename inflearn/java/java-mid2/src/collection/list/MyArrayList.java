@@ -1,19 +1,19 @@
-package collection.array;
+package collection.list;
 
 import java.util.Arrays;
 
-public class MyArrayListV4<E> {
+public class MyArrayList<E> implements MyList<E>{
 
     private static final int DEFAULT_CAPACITY = 5;
 
     private Object[] elementData;
     private int size = 0;
 
-    public MyArrayListV4() {
+    public MyArrayList() {
         elementData = new Object[DEFAULT_CAPACITY];
     }
 
-    public MyArrayListV4(int initialCapacity) {
+    public MyArrayList(int initialCapacity) {
         elementData = new Object[initialCapacity];
     }
 

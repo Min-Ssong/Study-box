@@ -3,7 +3,9 @@ package collection.array;
 import java.util.Arrays;
 
 public class MyArrayListV3 {
+
     private static final int DEFAULT_CAPACITY = 5;
+
     private Object[] elementData;
     private int size = 0;
 
@@ -15,31 +17,26 @@ public class MyArrayListV3 {
         elementData = new Object[initialCapacity];
     }
 
-    public int size(){
+    public int size() {
         return size;
     }
 
-    public void add(Object e){
-        if(size == elementData.length){
+    public void add(Object e) {
+        if (size == elementData.length) {
             grow();
         }
         elementData[size] = e;
         size++;
     }
 
-    public void add(int index, Object e){
-        if(size == elementData.length){
+    //코드 추가
+    public void add(int index, Object e) {
+        if (size == elementData.length) {
             grow();
         }
         shiftRightFrom(index);
         elementData[index] = e;
         size++;
-    }
-
-    private void shiftRightFrom(int index) {
-        for (int i = size; i > index; i--) {
-            elementData[i] = elementData[i - 1];
-        }
     }
 
     private void grow() {
@@ -48,17 +45,25 @@ public class MyArrayListV3 {
         elementData = Arrays.copyOf(elementData, newCapacity);
     }
 
-    public Object get(int index){
+    //코드 추가, 요소의 마지막부터 index까지 오른쪽으로 밀기
+    private void shiftRightFrom(int index) {
+        for (int i = size; i > index; i--) {
+            elementData[i] = elementData[i - 1];
+        }
+    }
+
+    public Object get(int index) {
         return elementData[index];
     }
 
-    public Object set(int index, Object element){
+    public Object set(int index, Object element) {
         Object oldValue = get(index);
         elementData[index] = element;
         return oldValue;
     }
 
-    public Object remove(int index){
+    //코드 추가
+    public Object remove(int index) {
         Object oldValue = get(index);
         shiftLeftFrom(index);
 
@@ -67,16 +72,16 @@ public class MyArrayListV3 {
         return oldValue;
     }
 
+    //코드 추가, 요소의 index부터 마지막까지 왼쪽으로 밀기
     private void shiftLeftFrom(int index) {
-        for(int i = index; i < size - 1; i++){
+        for (int i = index; i < size - 1; i++) {
             elementData[i] = elementData[i + 1];
         }
     }
 
-
-    public int indexOf(Object o){
-        for(int i = 0; i < size; i++){
-            if(o.equals(elementData[i])){
+    public int indexOf(Object o) {
+        for (int i = 0; i < size; i++) {
+            if (o.equals(elementData[i])) {
                 return i;
             }
         }
@@ -85,7 +90,7 @@ public class MyArrayListV3 {
 
     @Override
     public String toString() {
-        return Arrays.toString(Arrays.copyOf(elementData, size)) + " size=" +
-                size + ", capacity=" + elementData.length;
+        return Arrays.toString(Arrays.copyOf(elementData, size)) + " size=" + size + ", capacity=" + elementData.length;
     }
+
 }

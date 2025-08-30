@@ -3,7 +3,9 @@ package collection.array;
 import java.util.Arrays;
 
 public class MyArrayListV2 {
+
     private static final int DEFAULT_CAPACITY = 5;
+
     private Object[] elementData;
     private int size = 0;
 
@@ -15,37 +17,39 @@ public class MyArrayListV2 {
         elementData = new Object[initialCapacity];
     }
 
-    public int size(){
+    public int size() {
         return size;
     }
 
-    public void add(Object e){
-        if(size == elementData.length){
+    public void add(Object e) {
+        //추가
+        if (size == elementData.length) {
             grow();
         }
         elementData[size] = e;
         size++;
     }
 
+    //추가
     private void grow() {
         int oldCapacity = elementData.length;
         int newCapacity = oldCapacity * 2;
         elementData = Arrays.copyOf(elementData, newCapacity);
     }
-
-    public Object get(int index){
+    
+    public Object get(int index) {
         return elementData[index];
     }
 
-    public Object set(int index, Object element){
+    public Object set(int index, Object element) {
         Object oldValue = get(index);
         elementData[index] = element;
         return oldValue;
     }
 
-    public int indexOf(Object o){
-        for(int i = 0; i < size; i++){
-            if(o.equals(elementData[i])){
+    public int indexOf(Object o) {
+        for (int i = 0; i < size; i++) {
+            if (o.equals(elementData[i])) {
                 return i;
             }
         }
@@ -54,7 +58,7 @@ public class MyArrayListV2 {
 
     @Override
     public String toString() {
-        return Arrays.toString(Arrays.copyOf(elementData, size)) + " size=" +
-                size + ", capacity=" + elementData.length;
+        return Arrays.toString(Arrays.copyOf(elementData, size)) + " size=" + size + ", capacity=" + elementData.length;
     }
+
 }
