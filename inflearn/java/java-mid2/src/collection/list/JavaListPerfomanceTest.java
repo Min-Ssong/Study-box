@@ -1,45 +1,49 @@
 package collection.list;
 
-public class MyListPerfomanceTest {
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
+public class JavaListPerfomanceTest {
     public static void main(String[] args) {
         int size = 50000;
-        System.out.println("==Add MyArrayList==");
-        addFirst(new MyArrayList<>(), size);
-        addMid(new MyLinkedList<>(), size);
-        MyArrayList<Integer> arrayList = new MyArrayList<>();
+        System.out.println("==Add ArrayList==");
+        addFirst(new ArrayList<>(), size);
+        addMid(new LinkedList<>(), size);
+        ArrayList<Integer> arrayList = new ArrayList<>();
         addLast(arrayList, size);
 
         System.out.println("==add LinkedList==");
-        addFirst(new MyLinkedList<>(), size);
-        addMid(new MyLinkedList<>(), size);
-        MyLinkedList<Integer> MyLinkedList = new MyLinkedList<>();
-        addLast(MyLinkedList, size);
+        addFirst(new LinkedList<>(), size);
+        addMid(new LinkedList<>(), size);
+        LinkedList<Integer> linkedList = new LinkedList<>();
+        addLast(linkedList, size);
 
         int loop = 10000;
-        System.out.println("==search MyArrayList==");
+        System.out.println("==search ArrayList==");
         getIndex(arrayList, loop, 0);
         getIndex(arrayList, loop, size / 2);
         getIndex(arrayList, loop, size - 1);
 
         System.out.println("==search LinkedList==");
-        getIndex(MyLinkedList, loop, 0);
-        getIndex(MyLinkedList, loop, size / 2);
-        getIndex(MyLinkedList, loop, size - 1);
+        getIndex(linkedList, loop, 0);
+        getIndex(linkedList, loop, size / 2);
+        getIndex(linkedList, loop, size - 1);
 
-        System.out.println("==search MyArrayList==");
+        System.out.println("==search ArrayList==");
         search(arrayList, loop, 0);
         search(arrayList, loop, size / 2);
         search(arrayList, loop, size - 1);
 
         System.out.println("==search LinkedList==");
-        search(MyLinkedList, loop, 0);
-        search(MyLinkedList, loop, size / 2);
-        search(MyLinkedList, loop, size - 1);
+        search(linkedList, loop, 0);
+        search(linkedList, loop, size / 2);
+        search(linkedList, loop, size - 1);
 
 
     }
 
-    private static void getIndex(MyList<Integer> list, int loop, int index) {
+    private static void getIndex(List<Integer> list, int loop, int index) {
         long startTime = System.currentTimeMillis();
         for (int i = 0; i < loop; i++) {
             list.get(index);
@@ -50,7 +54,7 @@ public class MyListPerfomanceTest {
                 + ", currentTime: " + (endTime - startTime) + "ms");
     }
 
-    private static void search(MyList<Integer> list, int loop, int findValue) {
+    private static void search(List<Integer> list, int loop, int findValue) {
         long startTime = System.currentTimeMillis();
         for (int i = 0; i < loop; i++) {
             list.indexOf(findValue);
@@ -61,7 +65,7 @@ public class MyListPerfomanceTest {
         + ", currentTime: " + (endTime - startTime) + "ms");
     }
 
-    private static void addLast(MyList<Integer> list, int size) {
+    private static void addLast(List<Integer> list, int size) {
         long startTime = System.currentTimeMillis();
         for (int i = 0; i < size; i++) {
             list.add(i);
@@ -71,7 +75,7 @@ public class MyListPerfomanceTest {
                 + ", time: " + (endTime - startTime) + "ms");
     }
 
-    private static void addMid(MyList<Integer> list, int size) {
+    private static void addMid(List<Integer> list, int size) {
         long startTime = System.currentTimeMillis();
         for (int i = 0; i < size; i++) {
             list.add(i / 2, i);
@@ -81,10 +85,10 @@ public class MyListPerfomanceTest {
                 + ", time: " + (endTime - startTime) + "ms");
     }
 
-    private static void addFirst(MyList<Integer> list, int size) {
+    private static void addFirst(List<Integer> list, int size) {
         long startTime = System.currentTimeMillis();
         for (int i = 0; i < size; i++) {
-            list.add(0,i);
+            list.add(0, i);
         }
         long endTime = System.currentTimeMillis();
         System.out.println("addFirst - size: " + size
